@@ -74,6 +74,41 @@ const isDisableResetFormBtn = computed(() => {
   })
 });
 
+const colorRangeSphere = computed(() => {
+  return (score: number) => {
+    if(score <= 10) {
+      return '#8b2020'
+    }
+    if(score <= 20) {
+      return '#d24242';
+    }
+    if(score <= 30) {
+      return '#d26542';
+    }
+    if(score <= 40) {
+      return '#de8035';
+    }
+    if(score <= 50) {
+      return '#dea235';
+    }
+    if(score <= 60) {
+      return '#decc35';
+    }
+    if(score <= 70) {
+      return '#cade35';
+    }
+    if(score <= 80) {
+      return '#b6de35';
+    }
+    if(score <= 90) {
+      return '#9ede35';
+    }
+    if(score <= 100) {
+      return '#68c53f';
+    }
+  }
+})
+
 function onHandlerSetSphere(key: SphereKey) {
   spheres[key].isSetMode = true;
   if(spheres[key].isChanged === false) {
@@ -176,7 +211,7 @@ onBeforeMount( async() => {
 
 <template>
   <div class="app p-4">
-    <h1 class="text-100 font-bold mb-4">Life Spheres</h1>
+    <h1 class="text-100 font-bold mb-4 bg-black-alpha-90 text-white-alpha-90 w-max pr-4">Life Spheres_</h1>
     <div class="flex flex-row flex-wrap gap-3 select-none">
       <Popover ref="popover">
           <div class="popover flex flex-column gap-4 max-w-19rem p-3 shadow-2">
@@ -213,6 +248,8 @@ onBeforeMount( async() => {
           :size="200"
           :step="1"
           :valueTemplate="`${(spheres[key].score / 10).toPrecision(2)}`"
+          :valueColor="colorRangeSphere(spheres[key].score)" 
+          rangeColor="#bebebe"
           readonly
         />
         <Button

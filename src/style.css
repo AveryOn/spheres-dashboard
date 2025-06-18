@@ -25,3 +25,12 @@
     padding: 0 !important;
 }
 
+.p-button {
+    color: black !important;
+    border-color: black !important;
+    outline: 1px solid black !important;
+}
+
+.p-button:hover {
+    color: black !important;
+}
