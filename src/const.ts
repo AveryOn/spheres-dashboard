@@ -20,6 +20,7 @@ export const SYMPTOM_METRIC_NAMES = {
 
 export const SYMPTOM_METRIC_STATES = {
     affective_state: {
+        type: 'category',
         _stateList: ['DEPRESSIVE', 'NEUTRAL', 'EUPHORIC', 'IRRITABLE'],
         DEPRESSIVE: {
             index: 0,

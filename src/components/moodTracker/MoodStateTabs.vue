@@ -4,15 +4,31 @@ import TabList from 'primevue/tablist';
 import Tab from 'primevue/tab';
 import TabPanels from 'primevue/tabpanels';
 import TabPanel from 'primevue/tabpanel';
-import { SYMPTOM_METRIC_NAMES } from '../../const';
+import { SYMPTOM_METRIC_NAMES, SYMPTOM_METRIC_STATES } from '../../const';
 import { ref } from 'vue';
+import MainFilterForm from './UI/MainFilterForm.vue';
 
 const value = ref(0)
+
+const emit = defineEmits<{
+  select: [value: number]
+}>()
+
+const props = withDefaults(defineProps<{
+    activeFilter?: boolean
+}>(), {
+    activeFilter: false,
+})
 
 </script>
 
 <template>
-    <Tabs :value="value" class="inner" scrollable>
+    <Tabs 
+        :value="value" 
+        class="inner" 
+        scrollable 
+        @update:value="(value) => emit('select', +value)"
+    >
         <TabList>
             <template v-for="(_, key, idx) in SYMPTOM_METRIC_NAMES">
                 <Tab :value="idx">{{ SYMPTOM_METRIC_NAMES[key] }}</Tab>
@@ -21,6 +37,10 @@ const value = ref(0)
         <TabPanels>
             <template v-for="(_, key, idx) in SYMPTOM_METRIC_NAMES">
                 <TabPanel :value="idx">
+                    <MainFilterForm 
+                        v-if="props.activeFilter"
+                        :type="SYMPTOM_METRIC_STATES[key]?.type ?? 'category'"
+                    />
                     <slot :name="key"/>
                 </TabPanel>
             </template>

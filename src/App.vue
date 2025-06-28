@@ -24,6 +24,7 @@
 .app {
   position: relative;
   width: 100%;
+  background-color: white !important;
 }
 .nav-btn {
   transition: all 0.4s ease;

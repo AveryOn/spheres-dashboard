@@ -7,14 +7,17 @@ import 'primeicons/primeicons.css'
 import 'primeflex/primeflex.css'
 import Tooltip from 'primevue/tooltip';
 import { router } from './router';
+import './styles/index.css'
+import { ru } from './locales/ru';
 
 const app = createApp(App)
 app.directive('tooltip', Tooltip);
 app
     .use(router)
     .use(PrimeVue, {
+        locale: ru,
         theme: {
-            preset: Aura
+            preset: Aura,
         }
     })
     .mount('#app')

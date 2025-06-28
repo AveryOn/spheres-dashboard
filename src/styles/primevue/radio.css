@@ -1,0 +1,17 @@
+
+:root {
+    --radio-bg: white;
+    --radio-input-bg: rgb(61, 61, 61);
+
+    --p-radiobutton-width: 1rem !important;
+    --p-radiobutton-height: 1rem !important;
+}
+
+
+.p-radiobutton-box {
+    background: var(--radio-bg) !important;
+}
+
+.p-radiobutton-icon {
+    background: var(--radio-input-bg) !important;
+}

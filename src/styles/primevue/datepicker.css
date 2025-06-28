@@ -1,0 +1,127 @@
+
+:root {
+    --datepicker-bg: white;
+    --datepicker-fg: black;
+    --datepicker-btn-bg: white;
+    --datepicker-btn-fg: black;
+    --datepicker-btn-hover-bg: rgb(56, 56, 56);
+    --datepicker-btn-hover-fg: rgb(228, 228, 228);
+    --transition: all 0.3s ease;
+    --datepicker-btn-border: 1px dashed rgb(66, 66, 66);
+
+    --p-datepicker-dropdown-focus-ring-color: rgb(94, 94, 94) !important;
+    --p-datepicker-date-focus-ring-color: rgb(94, 94, 94) !important;
+    --p-inputtext-focus-ring-color: rgb(94, 94, 94) !important;
+}
+
+.p-datepicker-input {
+    background: var(--datepicker-bg) !important;
+    color: var(--datepicker-fg) !important;
+}
+
+.p-datepicker-header {
+    background: var(--datepicker-bg) !important;
+    color: var(--datepicker-fg) !important;
+}
+.p-datepicker-prev-button {
+    transition: var(--transition) !important;
+    border: var(--datepicker-btn-border) !important;
+    outline: none !important;
+}
+.p-datepicker-prev-button:hover {
+    color: var(--datepicker-btn-hover-fg) !important;
+    background: var(--datepicker-btn-hover-bg) !important;
+    transition: var(--transition) !important;
+}
+.p-datepicker-prev-button:hover path {
+    fill: var(--datepicker-btn-hover-fg) !important;
+    transition: var(--transition) !important;
+}
+.p-datepicker-next-button {
+    transition: var(--transition) !important;
+    border: var(--datepicker-btn-border) !important;
+    outline: none !important;
+}
+.p-datepicker-next-button:hover {
+    color: var(--datepicker-btn-hover-fg) !important;
+    background: var(--datepicker-btn-hover-bg) !important;
+    transition: var(--transition) !important;
+}
+.p-datepicker-next-button:hover path {
+    fill: var(--datepicker-btn-hover-fg) !important;
+    transition: var(--transition) !important;
+}
+
+.p-datepicker-title {
+    background: white !important;
+    color: black !important;
+}
+
+.p-datepicker-select-month {
+    background: var(--datepicker-bg) !important;
+    color: var(--datepicker-fg) !important;
+    border: 1px solid black !important;
+}
+.p-datepicker-select-month:hover {
+    background: rgb(58, 58, 58) !important;
+    color: rgb(231, 231, 231) !important;
+}
+
+.p-datepicker-select-year {
+    background: var(--datepicker-bg) !important;
+    color: var(--datepicker-fg) !important;
+    border: 1px solid black !important;
+}
+.p-datepicker-select-year:hover {
+    background: rgb(58, 58, 58) !important;
+    color: rgb(231, 231, 231) !important;
+}
+
+.p-datepicker-panel {
+    background: var(--datepicker-bg) !important;
+    color: var(--datepicker-fg) !important;
+}
+
+.p-datepicker-weekday-cell {
+    background: var(--datepicker-bg) !important;
+    color: var(--datepicker-fg) !important;
+}
+.p-datepicker-weekday {
+    background: var(--datepicker-bg) !important;
+    color: var(--datepicker-fg) !important;
+}
+
+.p-datepicker-day {
+    background: var(--datepicker-bg) !important;
+    color: var(--datepicker-fg) !important;
+    transition: var(--transition);
+    border: var(--datepicker-btn-border) !important;
+}
+
+.p-datepicker-day:hover {
+    background: var(--datepicker-btn-hover-bg) !important;
+    color: var(--datepicker-btn-hover-fg) !important;
+    transition: var(--transition);
+}
+
+.p-datepicker-year {
+    background: var(--datepicker-bg) !important;
+    color: var(--datepicker-fg) !important;
+    transition: var(--transition);
+}
+.p-datepicker-year:hover {
+    background: var(--datepicker-btn-hover-bg) !important;
+    color: var(--datepicker-btn-hover-fg) !important;
+    transition: var(--transition);
+}
+
+.p-datepicker-month {
+    background: var(--datepicker-bg) !important;
+    color: var(--datepicker-fg) !important;
+    transition: var(--transition);
+}
+.p-datepicker-month:hover {
+    background: var(--datepicker-btn-hover-bg) !important;
+    color: var(--datepicker-btn-hover-fg) !important;
+    transition: var(--transition);
+}

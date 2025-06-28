@@ -1,0 +1,39 @@
+
+:root {
+    --select-bg: white;
+    --select-fg: rgb(54, 54, 54);
+    --select-opt-hover-bg: rgb(54, 54, 54);
+    --select-opt-hover-fg: white;
+    --transition: all 0.3s ease;
+    --select-overlay-border: 1px solid rgba(126, 126, 126, 0.651);
+
+    --p-select-focus-ring-color: rgb(83, 83, 83)ck !important;
+}
+
+.p-select {
+    background: var(--select-bg) !important;
+}
+
+.p-select-label {
+    color: var(--select-fg) !important;
+}
+
+.p-select-overlay {
+    background: var(--select-bg) !important;
+    border: var(--select-overlay-border) !important;
+}
+
+.p-select-option {
+    background: var(--select-bg) !important;
+    transition: var(--transition) !important;
+}
+
+.p-select-option:hover {
+    background: var(--select-opt-hover-bg) !important;
+    transition: var(--transition) !important;
+}
+
+.p-select-option:hover .p-select-option-label {
+    color: var(--select-opt-hover-fg) !important;
+    transition: var(--transition) !important;
+}

@@ -6,10 +6,14 @@ import TabPanels from 'primevue/tabpanels';
 import TabPanel from 'primevue/tabpanel';
 import MoodStateTabs from '../components/moodTracker/MoodStateTabs.vue';
 import AffectiveStateM from '../components/moodTracker/metrics/AffectiveStateM.vue';
+import { ref } from 'vue';
+
+const selectedMetric = ref(0)
+
 </script>
 
 <template>
-    <div>
+    <div class="mood-tracker-page">
         <p class="text-100 text-2xl">Ежедневный протокол симптомов. Мониторинг психоэмоционального состояния</p>
 
         <div class="card mt-3">
@@ -20,11 +24,10 @@ import AffectiveStateM from '../components/moodTracker/metrics/AffectiveStateM.v
                 </TabList>
                 <TabPanels>
                     <TabPanel value="0">
-                        <MoodStateTabs>
+                        <MoodStateTabs :active-filter="true" @select="(val) => selectedMetric = val">
                             <template #affective_state>
-                                <AffectiveStateM />
+                                <AffectiveStateM v-if="selectedMetric === 0"/>
                             </template>
-                            
                         </MoodStateTabs>
                     </TabPanel>
                     <TabPanel value="1">
@@ -44,6 +47,9 @@ import AffectiveStateM from '../components/moodTracker/metrics/AffectiveStateM.v
 
 
 <style scoped>
+.mood-tracker-page {
+    background-color: white !important;
+}
 .p-tabpanels {
     padding: 0 !important;
     background: white !important;

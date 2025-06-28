@@ -1,0 +1,24 @@
+
+:root {
+    --checkbox-bg: white;
+    --checkbox-input-bg: rgb(61, 61, 61);
+
+    --p-checkbox-width: 1rem !important;
+    --p-checkbox-height: 1rem !important;
+    --p-checkbox-icon-color: white !important;
+    --p-checkbox-icon-checked-color: white !important;
+    --p-checkbox-checked-background: rgb(61, 61, 61) !important;
+    --p-checkbox-checked-hover-border-color: rgb(61, 61, 61) !important;
+    --p-checkbox-checked-border-color: rgb(0, 67, 167) !important;
+}
+
+
+.p-checkbox-box {
+    background: var(--checkbox-bg) !important;
+}
+
+.p-checkbox-icon {
+    background: var(--checkbox-input-bg) !important;
+    padding: 1px !important;
+    border: 2px solid rgb(255, 255, 255) !important;
+}
