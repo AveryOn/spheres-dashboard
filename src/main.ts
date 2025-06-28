@@ -6,12 +6,15 @@ import Aura from '@primeuix/themes/nora';
 import 'primeicons/primeicons.css'
 import 'primeflex/primeflex.css'
 import Tooltip from 'primevue/tooltip';
+import { router } from './router';
 
 const app = createApp(App)
 app.directive('tooltip', Tooltip);
-app.use(PrimeVue, {
-    theme: {
-        preset: Aura
-    }
-});
-app.mount('#app')
+app
+    .use(router)
+    .use(PrimeVue, {
+        theme: {
+            preset: Aura
+        }
+    })
+    .mount('#app')

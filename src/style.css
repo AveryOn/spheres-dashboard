@@ -16,6 +16,13 @@
 
 :root {
     --p-popover-border-color: rgba(197, 0, 0, 0) !important;
+    --p-tabs-tablist-background: white !important;
+    --p-tabs-tab-background: white !important;
+    --p-tabs-tab-color: rgb(51, 51, 51) !important;
+    --p-tabs-tab-active-background: rgb(14, 14, 14) !important;
+    --p-tabs-tab-active-color: white !important;
+    --p-tabs-tab-hover-background: rgba(88, 88, 88, 0.171) !important;
+    --p-tabs-tab-hover-color: rgb(51, 51, 51) !important;
 }
 
 .p-popover {
@@ -30,6 +37,7 @@
     border-color: black !important;
     outline: 1px solid black !important;
 }
+
 
 .p-button:hover {
     color: black !important;

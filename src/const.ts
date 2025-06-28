@@ -1,0 +1,65 @@
+
+export const SYMPTOM_METRIC_NAMES = {
+    affective_state: 'Аффективное состояние',
+    energy_level: 'Энергетический уровень',
+    sleep_quality: 'Сон',
+    appetite: 'Аппетит',
+    concentration: 'Концентрация',
+    suicidal_thoughts: 'Суицидальные мысли',
+    social_activity: 'Социальная активность',
+    physical_activity: 'Физическая активность',
+    anhedonia: 'Ангедония',
+    anxiety_level: 'Тревожность',
+    anxiety_type: 'Форма тревоги',
+    irritability: 'Раздражительность',
+    guilt_level: 'Самообвинение',
+    psychomotor_state: 'Психомоторное состояние',
+    brain_fog: 'Когнитивный туман',
+    substance_use: 'Алкоголь',
+} as const
+
+export const SYMPTOM_METRIC_STATES = {
+    affective_state: {
+        _stateList: ['DEPRESSIVE', 'NEUTRAL', 'EUPHORIC', 'IRRITABLE'],
+        DEPRESSIVE: {
+            index: 0,
+            score: 0,
+            code: 'depressive',
+            label: 'Депрессивное',
+        },
+        IRRITABLE: {
+            index: 1,
+            score: 1,
+            code: 'irritable',
+            label: 'Раздражительное',
+        },
+        NEUTRAL: {
+            index: 2,
+            score: 2,
+            code: 'neutral',
+            label: 'Нейтральное',
+        },
+        EUPHORIC: {
+            index: 3,
+            score: 3,
+            code: 'euphoric',
+            label: 'Приподнятое',
+        },
+    },
+    // energy_level: ,
+    // sleep_quality: ,
+    // appetite: ,
+    // concentration: ,
+    // suicidal_thoughts: ,
+    // social_activity: ,
+    // physical_activity: ,
+    // anhedonia: ,
+    // anxiety_level: ,
+    // anxiety_type: ,
+    // irritability: ,
+    // guilt_level: ,
+    // psychomotor_state: ,
+    // brain_fog: ,
+    // substance_use: ,
+} as const;
+
