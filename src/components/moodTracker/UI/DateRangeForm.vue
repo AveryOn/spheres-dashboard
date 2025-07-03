@@ -1,28 +1,42 @@
 <script setup lang="ts">
 import DatePicker from 'primevue/datepicker';
 import { ref } from 'vue';
+import { useMoodTrackStore } from '../../../stores/moodTrack';
+import { formatDateToISO } from '../../../utils/date.utils';
 
-const fromDate = ref();
-const toDate = ref();
+const { filterPanel } = useMoodTrackStore()
+
+function onDateSelect(date: Date, field: 'from' | 'to') {
+  const dateString = formatDateToISO(date)
+  console.log();
+  if(field === 'from') {
+    filterPanel.date.from = dateString;
+  }
+  else if (field === 'to') {
+    filterPanel.date.to = dateString;
+  }
+}
 </script>
 
 <template>
     <div class="date-range-form">
         <DatePicker 
-            class="w-10rem"
-            v-model="fromDate" 
+            class="w-12rem"
+            :model-value="filterPanel.date.from"
             showIcon 
             placeholder="От"
             iconDisplay="input" 
-            dateFormat="dd/mm/yy"
+            dateFormat="От: dd/mm/yy"
+            @date-select="(date) => onDateSelect(date, 'from')"
         />
         <DatePicker 
-            class="w-10rem"
-            v-model="toDate" 
+            class="w-12rem"
+            :model-value="filterPanel.date.to"
             showIcon 
             placeholder="До"
             iconDisplay="input" 
-            dateFormat="dd/mm/yy"
+            dateFormat="До: dd/mm/yy"
+            @date-select="(date) => onDateSelect(date, 'to')"
         />
     </div>
 </template>

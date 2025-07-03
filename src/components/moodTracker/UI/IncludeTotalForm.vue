@@ -1,25 +1,19 @@
 <script setup lang="ts">
 import Checkbox from 'primevue/checkbox';
-import { ref } from 'vue';
+import { useMoodTrackStore } from '../../../stores/moodTrack';
 
-const includeTotal = ref(false);
-
-function toggleIncludeTotal() {
-    includeTotal.value = !includeTotal.value;
-}
+const { filterPanel } = useMoodTrackStore()
 </script>
 
 <template>
     <div class="flex gap-1 align-items-center">
         <Checkbox
-            v-model="includeTotal"
+            v-model="filterPanel.includeTotal"
             inputId="includeTotal"
             binary
-            @update:model-value="console.log"
         />
         <label
             class="select-none cursor-pointer"
-            @click="toggleIncludeTotal"
             for="includeTotal"
         >
             Общая статистика

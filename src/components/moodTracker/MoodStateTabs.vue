@@ -5,8 +5,9 @@ import Tab from 'primevue/tab';
 import TabPanels from 'primevue/tabpanels';
 import TabPanel from 'primevue/tabpanel';
 import { SYMPTOM_METRIC_NAMES, SYMPTOM_METRIC_STATES } from '../../const';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import MainFilterForm from './UI/MainFilterForm.vue';
+import { getQuery, setQuery } from '../../utils/url.utils';
 
 const value = ref(0)
 
@@ -20,6 +21,20 @@ const props = withDefaults(defineProps<{
     activeFilter: false,
 })
 
+
+function onSelectTab(value: number) {
+    emit('select', value)
+    setQuery('mood-metric-tab', String(value))
+}
+
+onMounted(() => {
+    const tabIdx = +getQuery('mood-metric-tab')
+    if(!tabIdx) {
+        setQuery('mood-metric-tab', String(value.value))
+    }
+    value.value = tabIdx
+})
+
 </script>
 
 <template>
@@ -27,7 +42,9 @@ const props = withDefaults(defineProps<{
         :value="value" 
         class="inner" 
         scrollable 
-        @update:value="(value) => emit('select', +value)"
+        :select-on-focus="true"
+        :show-navigators="true"
+        @update:value="(value) => onSelectTab(+value)"
     >
         <TabList>
             <template v-for="(_, key, idx) in SYMPTOM_METRIC_NAMES">

@@ -10,10 +10,11 @@ const chartBarRef = ref(null);
 const chartCircleRef = ref(null);
 /** Порядок состояний важен */
 const states = [
-    SYMPTOM_METRIC_STATES.affective_state.DEPRESSIVE.label,
-    SYMPTOM_METRIC_STATES.affective_state.IRRITABLE.label,
-    SYMPTOM_METRIC_STATES.affective_state.NEUTRAL.label,
-    SYMPTOM_METRIC_STATES.affective_state.EUPHORIC.label,
+    // SYMPTOM_METRIC_STATES.affective_state.DEPRESSIVE.label,
+    // SYMPTOM_METRIC_STATES.affective_state.IRRITABLE.label,
+    // SYMPTOM_METRIC_STATES.affective_state.NEUTRAL.label,
+    // SYMPTOM_METRIC_STATES.affective_state.EUPHORIC.label,
+    '0 дн.', '1 дн.', '2 дн.', '3 дн.', '4 дн.', '5 дн.', '6 дн.', '7 дн.'
 ]
 const barStateLabels = ref([])
 const barStateData = ref([])
@@ -48,18 +49,50 @@ onMounted(async () => {
     const ctx2 = canvas2.getContext('2d');
 
     new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
             //   labels: ['2025-06-24', '2025-06-25', '2025-06-26', '2025-06-27', '2025-06-28', '2025-06-30', '2025-06-31'],
             labels: barStateLabels.value,
-            datasets: [{
-                label: SYMPTOM_METRIC_NAMES.affective_state,
-                data: barStateData.value,
-                borderColor: 'gray',
-                stepped: true,
-                borderRadius: 6,
-                fill: true,
-            }]
+            datasets: [
+                {
+                    // label: SYMPTOM_METRIC_NAMES.affective_state,
+                    label: 'Раздражительное',
+                    // data: barStateData.value,
+                    data: [4, 5, 2],
+                    borderColor: 'red',
+                    backgroundColor: 'red',
+                    // stepped: true,
+                    borderRadius: 6,
+                    fill: true,
+                },
+                {
+                    label: 'Депрессивное',
+                    data: [2, ],
+                    borderColor: 'gray',
+                    backgroundColor: 'gray',
+                    // stepped: true,
+                    borderRadius: 6,
+                    fill: true,
+                },
+                {
+                    label: 'Нейтральное',
+                    data: barStateData.value,
+                    borderColor: 'blue',
+                    backgroundColor: 'blue',
+                    // stepped: true,
+                    borderRadius: 6,
+                    fill: true,
+                },
+                {
+                    label: 'Приподнятое',
+                    data: barStateData.value,
+                    borderColor: 'purple',
+                    backgroundColor: 'purple',
+                    // stepped: true,
+                    borderRadius: 6,
+                    fill: true,
+                },
+            ]
         },
         options: {
             scales: {
@@ -68,10 +101,10 @@ onMounted(async () => {
                         callback: (value) => {
                             return states[value] || value;
                         },
-                        stepSize: 0.5,
+                        stepSize: 1,
                     },
                     min: 0,
-                    max: 3
+                    max: 7
                 }
             }
         }

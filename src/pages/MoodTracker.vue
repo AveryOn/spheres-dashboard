@@ -6,10 +6,53 @@ import TabPanels from 'primevue/tabpanels';
 import TabPanel from 'primevue/tabpanel';
 import MoodStateTabs from '../components/moodTracker/MoodStateTabs.vue';
 import AffectiveStateM from '../components/moodTracker/metrics/AffectiveStateM.vue';
-import { ref } from 'vue';
+import { onBeforeMount, ref, watch } from 'vue';
+import { useMoodTrackStore } from '../stores/moodTrack';
+import { deleteQuery, getQuery, setQuery } from '../utils/url.utils';
+import { formatDateToISO } from '../utils/date.utils';
+
+const { filterPanel } = useMoodTrackStore()
 
 const selectedMetric = ref(0)
 
+
+watch(() => filterPanel, (newState) => {
+    if(newState.date.from) {
+        setQuery('date-from', String(new Date(newState.date.from).getTime()))
+    }
+    if(newState.date.to) {
+        setQuery('date-to', String(new Date(newState.date.to).getTime()))
+    }
+    if(newState.numericAggregationBy) {
+        setQuery('numeric-aggregation-by', newState.numericAggregationBy)
+    }
+    if(newState.aggregation) {
+        setQuery('aggregation', newState.aggregation)
+    }
+    if(newState.groupBy) {
+        setQuery('group-by', newState.groupBy)
+    }
+    if(typeof newState.includeTotal === 'boolean') {
+        setQuery('include-total', `${newState.includeTotal}`)
+    }
+}, { deep: true })
+
+onBeforeMount(() => {
+    const dateFrom = +getQuery('date-from')
+    const dateTo = +getQuery('date-to')
+    if(!dateFrom) deleteQuery('date-from') 
+    else {
+        filterPanel.date.from = formatDateToISO(new Date(dateFrom));
+    }
+    if(!dateTo) deleteQuery('date-to') 
+    else {
+        filterPanel.date.to = formatDateToISO(new Date(dateTo));
+    }
+    filterPanel.aggregation = getQuery('aggregation');
+    filterPanel.groupBy = getQuery('group-by');
+    filterPanel.includeTotal = (getQuery('include-total') === 'true') ? true : false;
+    filterPanel.numericAggregationBy = getQuery('numeric-aggregation-by');
+})
 </script>
 
 <template>

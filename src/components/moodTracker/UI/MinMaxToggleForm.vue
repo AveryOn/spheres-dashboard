@@ -1,23 +1,23 @@
 <script setup lang="ts">
 import RadioButton from 'primevue/radiobutton';
-import { ref } from 'vue';
+import { useMoodTrackStore } from '../../../stores/moodTrack';
 
-const choose = ref('');
+const { filterPanel } = useMoodTrackStore()
 </script>
 
 <template>
     <div class="flex flex-wrap gap-1 align-content-center">
         <div class="flex items-center gap-2">
-            <RadioButton v-model="choose" inputId="choose1" name="minmax" value="min" />
-            <label for="choose1">Мин.</label>
+            <RadioButton v-model="filterPanel.numericAggregationBy" inputId="minmax_choose1" name="minmax" value="min" />
+            <label for="minmax_choose1">Мин.</label>
         </div>
         <div class="flex items-center gap-2">
-            <RadioButton v-model="choose" inputId="choose2" name="minmax" value="max" />
-            <label for="choose2">Макс.</label>
+            <RadioButton v-model="filterPanel.numericAggregationBy" inputId="minmax_choose2" name="minmax" value="max" />
+            <label for="minmax_choose2">Макс.</label>
         </div>
         <div class="flex items-center gap-2">
-            <RadioButton v-model="choose" inputId="choose3" name="minmax" value="average" />
-            <label for="choose3">Среднее</label>
+            <RadioButton v-model="filterPanel.numericAggregationBy" inputId="minmax_choose3" name="minmax" value="average" />
+            <label for="minmax_choose3">Среднее</label>
         </div>
     </div>
 </template>

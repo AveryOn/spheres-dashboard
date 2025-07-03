@@ -64,6 +64,13 @@ export interface GetMetricQueries {
      * Применимо для числовых метрик
      */
     max?: boolean | 'true' | 'false';
+    /**
+     * Числовая агрегация по:
+     * * `'min'` - минимальному значению за каждый интервал
+     * * `'max'` - максимальному значению за каждый интервал
+     * * `'average'` - среднему значению за каждый интервал
+     */
+    numericAggregationBy: 'average' | 'min' | 'max';
 }
 
 /**
@@ -80,23 +87,41 @@ export async function getAffectiveStateMetric(params?: GetMetricQueries) {
         },
         metrics: [
             {
-                label: '2025-06-24',
+                label: 'Неделя 1',
                 ts: Date.now(),
-                score: 1,
+                score: 2,
                 type: 'irritable',
             },
             {
-                label: '2025-06-25',
+                label: 'Неделя 2',
                 ts: Date.now(),
-                score: 0,
+                score: 3,
                 type: 'depressive',
             },
             {
-                label: '2025-06-26',
+                label: 'Неделя 3',
                 ts: Date.now(),
-                score: 3,
+                score: 1,
                 type: 'euphoric',
             },
+            // {
+            //     label: '2025-06-24',
+            //     ts: Date.now(),
+            //     score: 1,
+            //     type: 'irritable',
+            // },
+            // {
+            //     label: '2025-06-25',
+            //     ts: Date.now(),
+            //     score: 0,
+            //     type: 'depressive',
+            // },
+            // {
+            //     label: '2025-06-26',
+            //     ts: Date.now(),
+            //     score: 3,
+            //     type: 'euphoric',
+            // },
         ]
     }
 }

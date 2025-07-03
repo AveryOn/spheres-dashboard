@@ -9,10 +9,14 @@ import Tooltip from 'primevue/tooltip';
 import { router } from './router';
 import './styles/index.css'
 import { ru } from './locales/ru';
+import { createPinia } from 'pinia'
+
 
 const app = createApp(App)
+const pinia = createPinia()
 app.directive('tooltip', Tooltip);
 app
+    .use(pinia)
     .use(router)
     .use(PrimeVue, {
         locale: ru,

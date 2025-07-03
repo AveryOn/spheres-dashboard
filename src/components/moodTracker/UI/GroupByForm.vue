@@ -1,24 +1,32 @@
 <script setup lang="ts">
 import Select from 'primevue/select';
 import { ref } from 'vue';
+import { useMoodTrackStore } from '../../../stores/moodTrack';
 
-const selectOption = ref();
+const { filterPanel } = useMoodTrackStore()
+
 const options = ref([
     { name: 'День', code: 'day' },
     { name: 'Неделя', code: 'week' },
     { name: 'Месяц', code: 'month' },
 
 ]);
+
+function onUpdate(code: 'day' | 'week' | 'month') {
+    filterPanel.groupBy = code;
+}
 </script>
 
 <template>
     <div class="group-by-form">
         <Select 
             class="w-10rem"
-            v-model="selectOption" 
+            :model-value="filterPanel.groupBy"
             :options="options" 
-            optionLabel="name" 
+            option-label="name" 
+            option-value="code"
             placeholder="Группа" 
+            @change="(val) => onUpdate(val.value)"
         />
     </div>
 </template>
