@@ -109,7 +109,7 @@
 
 # Query-параметры
 
- все параметры:
+ Query-параметры в системе:
   ```typescript
   type Queries = 
       'mood-metric-tab'       | 
