@@ -111,12 +111,12 @@
 
  все параметры:
   ```typescript
-   type Queries = 
-       'mood-metric-tab'       | 
-       'date-from'             | 
-       'date-to'               | 
-       'aggregation'           | 
-       'group-by'              | 
-       'include-total'         | 
-       'numeric-aggregation-by' 
+  type Queries = 
+      'mood-metric-tab'       | 
+      'date-from'             | 
+      'date-to'               | 
+      'aggregation'           | 
+      'group-by'              | 
+      'include-total'         | 
+      'numeric-aggregation-by' 
   ```
