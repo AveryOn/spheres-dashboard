@@ -6,6 +6,7 @@ import TabPanels from 'primevue/tabpanels';
 import TabPanel from 'primevue/tabpanel';
 import MoodStateTabs from '../components/moodTracker/MoodStateTabs.vue';
 import AffectiveStateM from '../components/moodTracker/metrics/AffectiveStateM.vue';
+import EnergyLevelM from '../components/moodTracker/metrics/EnergyLevelM.vue';
 import { onBeforeMount, ref, watch } from 'vue';
 import { useMoodTrackStore } from '../stores/moodTrack';
 import { deleteQuery, getQuery, setQuery } from '../utils/url.utils';
@@ -38,6 +39,7 @@ watch(() => filterPanel, (newState) => {
 }, { deep: true })
 
 onBeforeMount(() => {
+    selectedMetric.value = +getQuery('mood-metric-tab')
     const dateFrom = +getQuery('date-from')
     const dateTo = +getQuery('date-to')
     if(!dateFrom) deleteQuery('date-from') 
@@ -70,6 +72,9 @@ onBeforeMount(() => {
                         <MoodStateTabs :active-filter="true" @select="(val) => selectedMetric = val">
                             <template #affective_state>
                                 <AffectiveStateM v-if="selectedMetric === 0"/>
+                            </template>
+                            <template #energy_level>
+                                <EnergyLevelM v-if="selectedMetric === 1"/>
                             </template>
                         </MoodStateTabs>
                     </TabPanel>
