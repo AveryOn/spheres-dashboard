@@ -212,7 +212,6 @@ onBeforeMount( async() => {
 
 <template>
   <div>
-    LALALASSASSF
     <div class="flex flex-row flex-wrap gap-3 select-none">
       <Popover ref="popover">
           <div class="popover flex flex-column gap-4 max-w-19rem p-3 shadow-2">
