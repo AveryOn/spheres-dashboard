@@ -32,9 +32,6 @@ onMounted(async () => {
 
     const ctx = canvas.getContext('2d');
 
-    const skipped = (ctx, value) => ctx.p0.skip || ctx.p1.skip ? value : undefined;
-    const down = (ctx, value) => ctx.p0.parsed.y > ctx.p1.parsed.y ? value : undefined;
-
     const data = {
         labels: lineStateLabels.value,
         datasets: [
@@ -46,11 +43,6 @@ onMounted(async () => {
                 backgroundColor: '#00000010',
                 stepped: false,
                 fill: true,
-                spanGaps: true,
-                segment: {
-                    borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)') || down(ctx, 'rgb(192,75,75)'),
-                    borderDash: ctx => skipped(ctx, [6, 6]),
-                },
             },
         ]
     }

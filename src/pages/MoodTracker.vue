@@ -76,6 +76,9 @@ onBeforeMount(() => {
                             <template #energy_level>
                                 <EnergyLevelM v-if="selectedMetric === 1"/>
                             </template>
+                            <template #sleep_quality>
+                                <EnergyLevelM v-if="selectedMetric === 2"/>
+                            </template>
                         </MoodStateTabs>
                     </TabPanel>
                     <TabPanel value="1">
