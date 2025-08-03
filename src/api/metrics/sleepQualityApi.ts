@@ -4,7 +4,7 @@ import type { GetMetricQueries } from "../../@types/client.types";
  * Получает с базы данных статистику по метрике `sleep_quality`
  * @returns Возвращает объект метрики с временными рядами и их состояниями
  */
-export async function getSleepQualityMetric(params?: GetMetricQueries) {
+export async function getSleepQualityMetric(_?: GetMetricQueries) {
     return {
         total: {},
         metrics: [

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import DatePicker from 'primevue/datepicker';
-import { ref } from 'vue';
 import { useMoodTrackStore } from '../../../stores/moodTrack';
 import { formatDateToISO } from '../../../utils/date.utils';
 

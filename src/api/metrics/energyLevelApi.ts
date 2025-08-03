@@ -4,7 +4,7 @@ import type { GetMetricQueries } from "../../@types/client.types";
  * Получает с базы данных статистику по метрике `energy_level`
  * @returns Возвращает объект метрики с временными рядами и их состояниями
  */
-export async function getEnergyLevelMetric(params?: GetMetricQueries) {
+export async function getEnergyLevelMetric(_?: GetMetricQueries) {
     return {
         total: { },
         metrics: [

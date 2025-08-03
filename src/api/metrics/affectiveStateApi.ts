@@ -5,7 +5,7 @@ import type { GetMetricQueries } from "../../@types/client.types";
  * Получает с базы данных статистику по метрике `affective_state`
  * @returns Возвращает объект метрики с временными рядами и их состояниями
  */
-export async function getAffectiveStateMetric(params?: GetMetricQueries) {
+export async function getAffectiveStateMetric(_?: GetMetricQueries) {
     return {
         total: {
             depressive: 1,
